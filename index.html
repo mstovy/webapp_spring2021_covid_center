@@ -3,12 +3,11 @@
 
 <head>
     <title>COVID Center Website</title>
-    <link rel="stylsheet" href="main.css">
     <meta charset="utf-8"> <!-- sets character format for page -->
     <meta name="keywords" content="HTML, CSS, JavaScript"> <!-- keywords for search engines -->
     <meta name="description" content="Covid Assessment"> <!-- description for search engines -->
     <meta name="author" content="Micah Stovall"> <!-- labels the author of the page -->
-    <meta http-equiv="refresh" content="30"> <!-- refreshes the page every 30 sec -->
+    <meta h ttp-equiv="refresh" content="30"> <!-- refreshes the page every 30 sec -->
 </head>
 
 <body>
@@ -16,178 +15,242 @@
         <h1>Welcome to Covid Assessment Website</h1>
         <a href="http://www.covid.gov">Government Information Website</a>
         <a href="about.html">About Us</a>
+        <link rel="stylsheet" href="css/main.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     </header>
     <section>
         <h2>Please fill out this form: </h2>
         <article>
             <form>
-                <fieldset>
-                    <legend>Pateint Information</legend>
-                    <p>
-                        <label for="txtfname">
-                            <span>First Name: </span>
-                            <strong><abbr title="required">*</abbr></strong>
-                        </label><br>
-                        <input type="text" id="txtfname" name="fname" required><br>
-                    </p>
-                    <p>
-                        <label for="txtlname">
-                            <span>Last Name: </span>
-                        </label><br>
-                        <input type="text" id="txtlname" name="lname" required><br>
-                    </p>
-                    <div>
-                        <fieldset>
-                            <legend>Gender: </legend>
-                            <input type="radio" id="rbmale" name="gender" value="male">
-                            <label for="rbmale">Male</label>
-                            <input type="radio" id="rbfemale" name="gender" value="female">
-                            <label for="rbfemale">Female</label>
-                            <input type="radio" id="rbother" name="gender" value="other">
-                            <label for="rbother">Other</label>
-                        </fieldset>
+                <fieldset class="border">
+                    <legend class="w-auto">Pateint Information</legend>
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            <label for="txtfname" class="col-form-label">
+                                <span>First Name: </span>
+                            </label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" id="txtfname" name="fname" required class="form-control"
+                                placeholder="First Name"><br>
+                        </div>
                     </div>
-                    <p>
+
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            <label for="txtlname" class="col-form-label">
+                                <span>Last Name: </span>
+                            </label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" id="txtlname" name="lname" required class="form-control"
+                                placeholder="Last Name"><br>
+                        </div>
+                    </div>
+
+                    <fieldset class="border form-group">
+                        <div class="row">
+                            <legend class="col-sm-2 col-form-label">Gender: </legend>
+                            <div CLASS="col-sm-10">
+                                <div class="form-check">
+                                    <input type="radio" id="rbmale" name="gender" value="male" class="form-check-input">
+                                    <label for="rbmale" class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="rbfemale" name="gender" value="female"
+                                        class="form-check-input">
+                                    <label for="rbfemale" class="form-check-label">Female</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" id="rbother" name="gender" value="other"
+                                        class="form-check-input">
+                                    <label for="rbother" class="form-check-label">Other</label>
+                                </div>
+                            </div>
+                    </fieldset>
+                    <div class="row form-group">
                         <!--
                                 using type "tel" no need for a pattern
                             <label for='txttel'>Telephone: </label>
                             <input type="tel" id="txttel" name="txttel">
                             -->
-                        <label for='txttel'>Telephone (xxx-xxx-xxxx): </label>
-                        <input type="text" id="txttel" name="txttel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-                    </p>
-                    <p>
-                        <label for="txtEmail">
+                        <label for='txttel' class="col-sm-2 col-form-label">Telephone (xxx-xxx-xxxx): </label>
+                        <div class="col-sm-10">
+                            <input type="text" id="txttel" name="txttel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                class="form-control" placeholder="xxx-xxx-xxxx">
+                        </div>
+                    </div>
+                    <div class="row form-grpup">
+                        <label for="txtEmail" class="col-sm-2 col-form-label">
                             <span>Email: </span>
                             <strong><abbr title="required">*</abbr></strong>
                         </label>
-                        <input type="email" id="txtEmail" name="txtEmail" required>
-                    </p>
-                    <p>
-                        <label for="txtAddress">Address: </label>
-                        <input type="text" id="txtAddress" name="txtAddress">
-                    </p>
-                    <p>
-                        <label for="txtDOB">
+                        <div class="col-sm-10">
+                            <input type="email" id="txtEmail" name="txtEmail" required class="form-control"
+                                placeholder="name@example.com">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="txtAddress" class="col-sm-2 col-form-label">
+                            <span>Address: </span>
+                        </label>
+                        <div class="col-sm-12 col-lg-6">
+                            <input type="text" id="txtAddress" name="txtAddress" class="form-control"
+                                placeholder="Street ">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="txtCity" name="txtCity" class="form-control" placeholder="City">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="txtState" name="txtState" class="form-control" placeholder="State">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="txtZip" name="txtZip" class="form-control" placeholder="Zipcode"
+                                pattern=[0-9]{5}>
+                        </div>
+
+                    </div>
+                    <div class="row form-group">
+                        <label for="txtDOB" class="col-sm-2 col-form-label">
                             <span>Date of Birth: </span>
                             <strong><abbr title="required">*</abbr></strong>
                         </label>
-                        <input type="date" id="txtDOB" name="txtDOB" required>
-                    </p>
+                        <div class="col-sm-10">
+                            <input type="date" id="txtDOB" name="txtDOB" required class="form-control"
+                                placeholder="Date of Birth">
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset>
-                    <legend>Potential Symptoms</legend>
-                    <h3>Please select which symptoms you exhibt: </h3>
-                    <p>
-                        <label for="ddFever">
-                            <span>Fever or Chills: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                    <legend class="w-auto">Potential Symptoms</legend>
+                    <div class="alert-primary">
+                        <h4>Please select which symptoms you exhibt: </h4>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddFever" class="col-sm-2 col-form-label">
+                            Fever or Chills:
                         </label>
-                        <select id="ddFever" name="ddFever">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddCough">
-                            <span>Cough: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddFever" name="ddFever" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <label for="ddCough" class="col-sm-2 col-form-label">
+                            Cough:
                         </label>
-                        <select id="ddCough" name="ddCough">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddBreath">
-                            <span>Shortness of Breath or Difficulty breathing: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddCough" name="ddCough" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <label for="ddBreath" class="col-sm-2 col-form-label">
+                            Shortness of Breath or Difficulty breathing:
                         </label>
-                        <select id="ddBreath" name="ddBreath">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddFatigue">
-                            <span>Fatigue: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddBreath" name="ddBreath" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddFatigue" class="col-sm-2 col-form-label">
+                            Fatigue:
                         </label>
-                        <select id="ddFatigue" name="ddFatique">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddAche">
-                            <span>Muscle or Body Aches: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddFatigue" name="ddFatique" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddAche" class="col-sm-2 col-form-label">
+                            Muscle or Body Aches:
                         </label>
-                        <select id="ddAche" name="ddAche">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddHeadache">
-                            <span>Headache: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddAche" name="ddAche" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddHeadache" class="col-sm-2 col-form-label">
+                            Headache:
                         </label>
-                        <select id="ddHeadache" name="ddHeadache">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddLoss">
-                            <span>Loss of Taste or Smell: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddHeadache" name="ddHeadache" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddLoss" class="col-sm-2 col-form-label">
+                            Loss of Taste or Smell:
                         </label>
-                        <select id="ddLoss" name="ddLoss">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddSore">
-                            <span>Sore Throat: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddLoss" name="ddLoss" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddSore" class="col-sm-2 col-form-label">
+                            Sore Throat:
                         </label>
-                        <select id="ddSore" name="ddSore">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddRunny">
-                            <span>Congestion or Runny Nose: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddSore" name="ddSore" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddRunny" class="col-sm-2 col-form-label">
+                            Congestion or Runny Nose:
                         </label>
-                        <select id="ddRunny" name="ddRunny">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddPuke">
-                            <span>Nausea or Vommiting: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddRunny" name="ddRunny" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddPuke" class="col-sm-2 col-form-label">
+                            Nausea or Vommiting:
                         </label>
-                        <select id="ddPuke" name="ddPuke">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="ddDiarrhea">
-                            <span>Diarrhea: </span>
-                            <strong><abbr title="required">*</abbr></strong>
+                        <div>
+                            <select id="ddPuke" name="ddPuke" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddDiarrhea" class="col-sm-2 col-form-label">
+                            Diarrhea:
                         </label>
-                        <select id="ddDiarrhea" name="ddDiarrhea">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                    </p>
+                        <div>
+                            <select id="ddDiarrhea" name="ddDiarrhea" class="form-control">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
                 </fieldset>
                 <fieldset>
                     <legend>Other Questions</legend>
@@ -243,8 +306,8 @@
                     </p>
                 </fieldset>
                 <p>
-                    <button type="submit">Submit</button>
-                    <button type="reset">reset</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">reset</button>
                 </p>
             </form>
         </article>
@@ -253,4 +316,5 @@
         copyright @2021 Covid Center Website
     </footer>
 </body>
+
 </html>
