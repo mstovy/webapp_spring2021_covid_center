@@ -8,6 +8,8 @@
     <meta name="description" content="Covid Assessment"> <!-- description for search engines -->
     <meta name="author" content="Micah Stovall"> <!-- labels the author of the page -->
     <meta h ttp-equiv="refresh" content="30"> <!-- refreshes the page every 30 sec -->
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -18,12 +20,13 @@
         <link rel="stylsheet" href="css/main.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
             integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="js/script.js"></script>
 
     </header>
     <section>
         <h2>Please fill out this form: </h2>
         <article>
-            <form>
+            <form onsubmit="return validateForm()" id="mainForm" novalidate>
                 <fieldset class="border">
                     <legend class="w-auto">Pateint Information</legend>
                     <div class="form-group row">
@@ -120,7 +123,10 @@
                         <div class="col-sm-10">
                             <input type="date" id="txtDOB" name="txtDOB" required class="form-control"
                                 placeholder="Date of Birth">
+                            <div id="divDOBError" class="col-sm-5 invisible errorMSG">
+                            </div>
                         </div>
+                        
                     </div>
                 </fieldset>
                 <fieldset>
@@ -254,7 +260,7 @@
                 </fieldset>
                 <fieldset>
                     <legend>Other Questions</legend>
-                    <p>
+                    <div>
                         <label for="ddContact">
                             <span>Have you had contact (within 6 feet for > 15 minutes), or caring for someone who
                                 is diagnosed with COVID-19 in the last 14 days and were not wearing proper personal
@@ -266,8 +272,8 @@
                             <option value="No" selected>No</option>
                             <option value="Yes">Yes</option>
                         </select>
-                    </p>
-                    <p>
+                    </div>
+                    <div>
                         <label for="ddDiagnose">
                             <span>Have you had a diagnosis of COVID-19 in teh last 10 days?</span>
                             <strong><abbr title="required">*</abbr></strong>
@@ -277,33 +283,37 @@
                             <option value="No" selected>No</option>
                             <option value="Yes">Yes</option>
                         </select>
-                    </p>
-                    <div>
-                        <label for="ddTravel">
+                    </div>
+                    <div class="row form-group">
+                        <label for="ddTravel" class="col-sm-3 col-form-label">
                             <span>Have you travelled to any country in the last 14 days?</span><br>
                             <span>(If yes please specify which country)</span>
                             <strong><abbr title="required">*</abbr></strong>
                             <br>
                         </label>
-                        <select id="ddTravel" name="ddTravel">
-                            <option value="No" selected>No</option>
-                            <option value="Yes">Yes</option>
-                        </select>
-                        <br>
-                        <div>
-                            <label for="txtCountry">
-                                <span>Which Countries did you travel to? (seperate with a comma)</span>
-                            </label>
+                        <div class="col-sm-4">
+                            <select id="ddTravel" name="ddTravel" class="form-control" onchange="updateCountryView()">
+                                <option value="No" selected>No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="divCountry" class="row form-group invisible">
+                        <label for="textCountry">
+                            <span>Which Countries did you travel to? (seperate with a comma)</span>
+                        </label>
+                        <div class="col-sm-4"> 
                             <input type="text" id="txtCountry" name="txtCountry">
                         </div>
                     </div>
-                    <p>
+                    <div>
                         <label for="txtTemp">
                             <span>Please enter your current temperature: </span>
                             <strong><abbr title="required">*</abbr></strong>
                             <input type="text" id="txtTemp" name="txtTemp" required pattern="[A-Za-z]{3}">
                         </label>
-                    </p>
+                    </div>
                 </fieldset>
                 <p>
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -315,6 +325,7 @@
     <footer>
         copyright @2021 Covid Center Website
     </footer>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
